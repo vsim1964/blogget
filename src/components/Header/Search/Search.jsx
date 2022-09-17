@@ -4,7 +4,7 @@ import style from './Search.module.css';
 
 export const Search = () => {
   return (
-    <form classname={style.form}>
+    <form className={style.form}>
       <input className={style.search} type="search" />
       <button className={style.button}>
         <svg className={style.svg} width="128" height="128" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

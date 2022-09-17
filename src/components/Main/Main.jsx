@@ -5,7 +5,7 @@ import style from './Main.module.css';
 export const Main = () => {
   return (
     <main>
-      <Layout>
+      <Layout classname={style.main}>
 
       </Layout>
     </main>

@@ -9,7 +9,7 @@ import style from './Header.module.css';
 
 export const Header = () => {
   return (
-    <header >
+    <header className={style.header}>
       <Layout>
         <div className={style.gridContainer}>
           <Logo />

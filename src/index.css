@@ -113,3 +113,7 @@ iframe {
   width: 1px;
   overflow: hidden;
 }
+
+.none {
+  display: none;
+}

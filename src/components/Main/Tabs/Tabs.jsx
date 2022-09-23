@@ -5,28 +5,34 @@ import { assignId} from '../../../utils/generateId';
 import {debounceRaf} from '../../../utils/debounce';
 
 import { ReactComponent as ArrowIcon } from './img/arrow.svg';
-import { ReactComponent as EyeIcon } from './img/eye.svg';
-import { ReactComponent as PostIcon } from './img/post.svg';
-import { ReactComponent as SaveIcon } from './img/save.svg';
+import { ReactComponent as BestIcon } from './img/best.svg';
+import { ReactComponent as HotIcon } from './img/hot.svg';
+import { ReactComponent as TopIcon } from './img/top.svg';
 import { ReactComponent as HomeIcon } from './img/home.svg';
 
 const listRubrics = [
   {value: 'Главная', Icon: HomeIcon},
-  {value: 'Просмотренные', Icon: EyeIcon},
-  {value: 'Сохраненные', Icon: SaveIcon},
-  {value: 'Мои посты', Icon: PostIcon},
+  {value: 'Топ', Icon: TopIcon},
+  {value: 'Лучшие', Icon: BestIcon},
+  {value: 'Горячие', Icon: HotIcon},
 ].map(assignId);
 
 const Tabs = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isDropdown, setIsDropDown] = useState(true);
+  const [isDropdown, setIsDropdown] = useState(true);
+  const [isItemMenu, setItemMenu] = useState('Открыть меню');
 
   const handleResize = () => {
     if (document.documentElement.clientWidth < 768) {
-      setIsDropDown(true);
+      setIsDropdown(true);
     } else {
-      setIsDropDown(false);
+      setIsDropdown(false);
     }
+  };
+
+  const handleClickMenu = (value) => {
+    setIsDropdownOpen(false);
+    setItemMenu(value);
   };
 
   useEffect(() => {
@@ -45,7 +51,7 @@ const Tabs = () => {
           <button
             className={style.btn}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          Открыть меню
+            {isItemMenu}
             <ArrowIcon width={15} heigyn={15}/>
           </button>
         </div>
@@ -57,7 +63,7 @@ const Tabs = () => {
             <li className={style.item} key={id}>
               <button
                 className={style.btn}
-                onClick={() => {}}>
+                onClick={() => handleClickMenu(value)}>
                 {value}
                 {Icon && <Icon width={25} height={25} />}
               </button>

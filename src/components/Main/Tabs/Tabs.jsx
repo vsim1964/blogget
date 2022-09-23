@@ -1,12 +1,17 @@
 import style from './Tabs.module.css';
+import PropTypes from 'prop-types';
 
-const Tabs = () => (
-  <ul className={style.tabs}>
-    <li><a href="/">Главная</a></li>
-    <li><a href="/">Просмотренные</a></li>
-    <li><a href="/">Сохраненные</a></li>
-    <li><a href="/">Мои посты</a></li>
+const Tabs = ({rubrics}) => (
+  <ul className={style.rubrics}>
+    {rubrics.map((value, id) => (
+      <li key={id}>
+        <button>{value}</button>
+      </li>
+    ))}
   </ul>
 );
-
 export default Tabs;
+
+Tabs.propTypes = {
+  rubrics: PropTypes.array,
+};

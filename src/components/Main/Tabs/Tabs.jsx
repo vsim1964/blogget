@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { assignId} from '../../../utils/generateId';
 import {debounceRaf} from '../../../utils/debounce';
+import { Text } from '../../../UI/Text/Text';
 
 import { ReactComponent as ArrowIcon } from './img/arrow.svg';
 import { ReactComponent as BestIcon } from './img/best.svg';
@@ -61,12 +62,15 @@ const Tabs = () => {
         <ul className={style.rubrics} onClick={() => setIsDropdownOpen(false)}>
           {listRubrics.map(({value, id, Icon}) => (
             <li className={style.item} key={id}>
-              <button
+              <Text
+                As='button'
+                size={16}
+                lineHeight='24.8'
                 className={style.btn}
                 onClick={() => handleClickMenu(value)}>
                 {value}
                 {Icon && <Icon width={25} height={25} />}
-              </button>
+              </Text>
             </li>))}
         </ul>
       )}
